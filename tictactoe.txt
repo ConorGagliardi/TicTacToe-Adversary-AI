@@ -1,0 +1,329 @@
+CL-USER 29 > (game-play)
+
+> Lets play a game of tic-tac-toe!
+> Choose your symbol (x/o): x
+
+> Do you want to start? (y/n): y
+Current state:
+> 123
+> 456
+> 789
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 5
+
+(ENEMY TURN) 
+> Current state:
+> O23
+> 4X6
+> 789
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 3
+
+> Current state:
+> O2X
+> 4X6
+> 789
+(ENEMY TURN) 
+> Current state:
+> O2X
+> 4X6
+> O89
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 4
+
+> Current state:
+> O2X
+> XX6
+> O89
+(ENEMY TURN) 
+> Current state:
+> O2X
+> XXO
+> O89
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 2
+
+> Current state:
+> OXX
+> XXO
+> O89
+(ENEMY TURN) 
+> Current state:
+> OXX
+> XXO
+> OO9
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 9
+
+> Current state:
+> OXX
+> XXO
+> OOX
+(STALEMATE) 
+T
+
+CL-USER 30 > (game-play)
+
+> Lets play a game of tic-tac-toe!
+> Choose your symbol (x/o): o
+
+> Do you want to start? (y/n): n
+
+(ENEMY TURN) 
+> Current state:
+> 123
+> 4X6
+> 789
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 2
+
+> Current state:
+> 1O3
+> 4X6
+> 789
+(ENEMY TURN) 
+> Current state:
+> XO3
+> 4X6
+> 789
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 9
+
+> Current state:
+> XO3
+> 4X6
+> 78O
+(ENEMY TURN) 
+> Current state:
+> XO3
+> 4X6
+> X8O
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 3
+
+> Current state:
+> XOO
+> 4X6
+> X8O
+(ENEMY TURN) 
+> Current state:
+> XOO
+> XX6
+> X8O
+(X WINS) 
+T
+
+CL-USER 31 > (setf no-tracing NIL)
+NIL
+
+CL-USER 32 > (game-play)
+
+> Lets play a game of tic-tac-toe!
+> Choose your symbol (x/o): x
+
+> Do you want to start? (y/n): n
+
+(ENEMY TURN) 
+"successor" (O 2 3 4 5 6 7 8 9)
+(MINIMIZING) (O X 3 4 5 6 7 8 9) 1
+(NEW BETA) 
+(MINIMIZING) (O 2 X 4 5 6 7 8 9) 0
+(NEW BETA) 
+(MINIMIZING) (O 2 3 X 5 6 7 8 9) 1
+(MINIMIZING) (O 2 3 4 X 6 7 8 9) -1
+(NEW BETA) 
+(MINIMIZING) (O 2 3 4 5 X 7 8 9) 1
+(MINIMIZING) (O 2 3 4 5 6 X 8 9) 0
+(MINIMIZING) (O 2 3 4 5 6 7 X 9) 1
+(MINIMIZING) (O 2 3 4 5 6 7 8 X) 1
+(WORST V) -1
+"top heur" -999
+"temp heur" -1
+"successor" (1 O 3 4 5 6 7 8 9)
+(MINIMIZING) (X O 3 4 5 6 7 8 9) -1
+(PRUNING IN MIN TREE) 
+"top heur" -1
+"temp heur" -1
+"successor" (1 2 O 4 5 6 7 8 9)
+(MINIMIZING) (X 2 O 4 5 6 7 8 9) 0
+(NEW BETA) 
+(MINIMIZING) (1 X O 4 5 6 7 8 9) 1
+(MINIMIZING) (1 2 O X 5 6 7 8 9) 1
+(MINIMIZING) (1 2 O 4 X 6 7 8 9) -1
+(PRUNING IN MIN TREE) 
+"top heur" -1
+"temp heur" -1
+"successor" (1 2 3 O 5 6 7 8 9)
+(MINIMIZING) (X 2 3 O 5 6 7 8 9) -1
+(PRUNING IN MIN TREE) 
+"top heur" -1
+"temp heur" -1
+"successor" (1 2 3 4 O 6 7 8 9)
+(MINIMIZING) (X 2 3 4 O 6 7 8 9) 1
+(NEW BETA) 
+(MINIMIZING) (1 X 3 4 O 6 7 8 9) 2
+(MINIMIZING) (1 2 X 4 O 6 7 8 9) 1
+(MINIMIZING) (1 2 3 X O 6 7 8 9) 2
+(MINIMIZING) (1 2 3 4 O X 7 8 9) 2
+(MINIMIZING) (1 2 3 4 O 6 X 8 9) 1
+(MINIMIZING) (1 2 3 4 O 6 7 X 9) 2
+(MINIMIZING) (1 2 3 4 O 6 7 8 X) 2
+(WORST V) 1
+"top heur" -1
+"temp heur" 1
+"successor" (1 2 3 4 5 O 7 8 9)
+(MINIMIZING) (X 2 3 4 5 O 7 8 9) -1
+(PRUNING IN MIN TREE) 
+"top heur" 1
+"temp heur" -1
+"successor" (1 2 3 4 5 6 O 8 9)
+(MINIMIZING) (X 2 3 4 5 6 O 8 9) 0
+(PRUNING IN MIN TREE) 
+"top heur" 1
+"temp heur" 0
+"successor" (1 2 3 4 5 6 7 O 9)
+(MINIMIZING) (X 2 3 4 5 6 7 O 9) -1
+(PRUNING IN MIN TREE) 
+"top heur" 1
+"temp heur" -1
+"successor" (1 2 3 4 5 6 7 8 O)
+(MINIMIZING) (X 2 3 4 5 6 7 8 O) -1
+(PRUNING IN MIN TREE) 
+"top heur" 1
+"temp heur" -1
+> Current state:
+> 123
+> 4O6
+> 789
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 4
+
+> Current state:
+> 123
+> XO6
+> 789
+(ENEMY TURN) 
+"successor" (O 2 3 X O 6 7 8 9)
+(MINIMIZING) (O X 3 X O 6 7 8 9) 11
+(NEW BETA) 
+(MINIMIZING) (O 2 X X O 6 7 8 9) 10
+(NEW BETA) 
+(MINIMIZING) (O 2 3 X O X 7 8 9) 12
+(MINIMIZING) (O 2 3 X O 6 X 8 9) 11
+(MINIMIZING) (O 2 3 X O 6 7 X 9) 11
+(MINIMIZING) (O 2 3 X O 6 7 8 X) 11
+(WORST V) 10
+"top heur" -999
+"temp heur" 10
+"successor" (1 O 3 X O 6 7 8 9)
+(MINIMIZING) (X O 3 X O 6 7 8 9) 1
+(PRUNING IN MIN TREE) 
+"top heur" 10
+"temp heur" 1
+"successor" (1 2 O X O 6 7 8 9)
+(MINIMIZING) (X 2 O X O 6 7 8 9) 2
+(PRUNING IN MIN TREE) 
+"top heur" 10
+"temp heur" 2
+"successor" (1 2 3 X O O 7 8 9)
+(MINIMIZING) (X 2 3 X O O 7 8 9) -8
+(PRUNING IN MIN TREE) 
+"top heur" 10
+"temp heur" -8
+"successor" (1 2 3 X O 6 O 8 9)
+(MINIMIZING) (X 2 3 X O 6 O 8 9) 11
+(NEW BETA) 
+(MINIMIZING) (1 X 3 X O 6 O 8 9) 11
+(MINIMIZING) (1 2 X X O 6 O 8 9) 1
+(PRUNING IN MIN TREE) 
+"top heur" 10
+"temp heur" 1
+"successor" (1 2 3 X O 6 7 O 9)
+(MINIMIZING) (X 2 3 X O 6 7 O 9) 1
+(PRUNING IN MIN TREE) 
+"top heur" 10
+"temp heur" 1
+"successor" (1 2 3 X O 6 7 8 O)
+(MINIMIZING) (X 2 3 X O 6 7 8 O) -7
+(PRUNING IN MIN TREE) 
+"top heur" 10
+"temp heur" -7
+> Current state:
+> O23
+> XO6
+> 789
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 9
+
+> Current state:
+> O23
+> XO6
+> 78X
+(ENEMY TURN) 
+"successor" (O O 3 X O 6 7 8 X)
+(MINIMIZING) (O O X X O 6 7 8 X) 9
+(NEW BETA) 
+(MINIMIZING) (O O 3 X O X 7 8 X) 20
+(MINIMIZING) (O O 3 X O 6 X 8 X) 19
+(MINIMIZING) (O O 3 X O 6 7 X X) 10
+(WORST V) 9
+"top heur" -999
+"temp heur" 9
+"successor" (O 2 O X O 6 7 8 X)
+(MINIMIZING) (O X O X O 6 7 8 X) 19
+(NEW BETA) 
+(MINIMIZING) (O 2 O X O X 7 8 X) 30
+(MINIMIZING) (O 2 O X O 6 X 8 X) 11
+(NEW BETA) 
+(MINIMIZING) (O 2 O X O 6 7 X X) 20
+(WORST V) 11
+"top heur" 9
+"temp heur" 11
+"successor" (O 2 3 X O O 7 8 X)
+(MINIMIZING) (O X 3 X O O 7 8 X) 10
+(PRUNING IN MIN TREE) 
+"top heur" 11
+"temp heur" 10
+"successor" (O 2 3 X O 6 O 8 X)
+(MINIMIZING) (O X 3 X O 6 O 8 X) 19
+(NEW BETA) 
+(MINIMIZING) (O 2 X X O 6 O 8 X) 1
+(PRUNING IN MIN TREE) 
+"top heur" 11
+"temp heur" 1
+"successor" (O 2 3 X O 6 7 O X)
+(MINIMIZING) (O X 3 X O 6 7 O X) 10
+(PRUNING IN MIN TREE) 
+"top heur" 11
+"temp heur" 10
+> Current state:
+> O2O
+> XO6
+> 78X
+> Enter move 1-9 to place your symbol on desired place, not already taken.
+> Enter move: 7
+
+> Current state:
+> O2O
+> XO6
+> X8X
+(ENEMY TURN) 
+"successor" (O O O X O 6 X 8 X)
+"top heur" -999
+"temp heur" 1000
+"successor" (O 2 O X O O X 8 X)
+(MINIMIZING) (O X O X O O X 8 X) 0
+(PRUNING IN MIN TREE) 
+"top heur" 1000
+"temp heur" 0
+"successor" (O 2 O X O 6 X O X)
+(MINIMIZING) (O X O X O 6 X O X) 10
+(PRUNING IN MIN TREE) 
+"top heur" 1000
+"temp heur" 10
+> Current state:
+> OOO
+> XO6
+> X8X
+(O WINS) 
+T
